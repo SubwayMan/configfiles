@@ -1,0 +1,9 @@
+[user]
+	name = username
+	email = youremail
+[alias]
+	yoink = pull
+	last = log -1 HEAD
+	st = status
+	ci = commit
+	a = add .
