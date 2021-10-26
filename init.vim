@@ -1,5 +1,9 @@
 set nocompatible
 
+" map leader key
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 call plug#begin('C:/Users/Hakurei/AppData/Local/nvim/plugged') 
 Plug 'vim-airline/vim-airline'
 
@@ -62,8 +66,19 @@ nnoremap <silent> <leader>f :Files<CR>
 Plug 'neoclide/coc.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'folke/which-key.nvim'
+
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'mhinz/vim-startify'
+ let g:startify_custom_header = [
+            \ '                                 ________  __ __        ',
+            \ '            __                  /\_____  \/\ \\ \       ',
+            \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
+            \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+            \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+            \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
+            \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
+            \ ]
 
 " Vim ranger setup
 let g:ranger_map_keys = 0
@@ -73,10 +88,6 @@ call plug#end()
 
 " Display line numbers
 set number
-
-" map leader key
-nnoremap <SPACE> <Nop>
-let mapleader=" "
 
 " configure vim-which-key
 set timeoutlen=200
@@ -145,7 +156,7 @@ set undolevels=967067
 
 set undofile
 
-let &undodir=expand('~/.vim/undodir')
+let &undodir=expand('~/AppData/Local/nvim/undodir')
 if !isdirectory(&undodir)
     call mkdir(&undodir, 'p')
 endif
