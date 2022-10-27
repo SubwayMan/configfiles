@@ -1,33 +1,18 @@
 local telescope = require('telescope')
-local actions = require('telescope.actions')
 
 telescope.setup {
-     defaults = {
-        color_devicons = false,
-        prompt_prefix = "$ ",
-        file_ignore_patterns = { "^.git/", "vendor" },
+    defaults = {
         mappings = {
-            i = {
-                ['<esc>'] = actions.close
-            },
-            n = {
-                ['<esc>'] = actions.close
-            }
-        }
+
+        },
+        file_ignore_patterns = {'node_modules', '%.out', '%.exe', '.git/'}
     }
 }
 
 telescope.load_extension('fzf')
+local opts = { noremap = true, silent = true }
 
-local M = {}
 
-M.project_files = function()
-    local opts = {}
-    local ok = pcall(require('telescope.builtin').git_files, opts)
-    if not ok then require('telescope.builtin').find_files(opts) end
-end
 
-vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require\'telescope.builtin\'.find_files()<Cr>', {noremap=true, silent=true})
-vim.api.nvim_set_keymap('n', '<Leader>fg', ':lua require\'telescope.builtin\'.live_grep()<Cr>', {noremap=true, silent=true})
 
-return M
+

@@ -1,18 +1,13 @@
-local treesitter = require('nvim-treesitter.configs')
+require('nvim-treesitter.configs').setup {
 
-if not treesitter then
-	vim.cmd([[ echom 'Cannot load `nvim-treesitter.configs`' ]])
-	return
-end
+    ensure_installed = "all",
+    ignore_install = { "phpdoc" },
 
-treesitter.setup({
-    disable = {},
-    ensure_installed = {'bash', 'c', 'cpp', 'go', 'java', 'javascript', 'json', 'lua', 'python'},
+    auto_install = true,
 
     highlight = {
-		enable = true,
-		use_languagetree = true,
-		-- disable = { "java" },  -- list of language that will be disabled
-		custom_captures = {},
-	}
-})
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+}
+    
